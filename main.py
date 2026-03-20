@@ -288,20 +288,18 @@ def main():
     start_time = monotonic()
 
     data = load_breast_cancer()
-    X_df = pd.DataFrame(data.data, columns=data.feature_names)
+    x_df = pd.DataFrame(data.data, columns=data.feature_names)
 
     # -----------------------
 
     results = []
 
-    for col in X_df.columns:
+    for col in x_df.columns:
 
-        # ---- type detection ----
-        types_present = X_df[col].map(type).unique()
+        types_present = x_df[col].map(type).unique()
         type_names = [t.__name__ for t in types_present]
 
-        # ---- missing values ----
-        missing_values = X_df[col].isna().sum()
+        missing_values = x_df[col].isna().sum()
 
         row = {
             "feature": col,
@@ -318,15 +316,13 @@ def main():
 
     # -----------------------
 
-    y2 = pd.Series(data.target, name='class')  # target variable
-    df = pd.concat([X_df, y2], axis=1)
+    y2 = pd.Series(data.target, name='class')
+    df = pd.concat([x_df, y2], axis=1)
 
     df.columns = [c.replace(' ', '_') for c in df.columns]
     features = [c for c in df.columns if c != 'class']
     classes = sorted(df['class'].unique())
 
-    row_height = 300
-    spacing = 10
     row_charts = []
 
     for cls in classes:
@@ -338,9 +334,9 @@ def main():
             fontSize=14,
             dx=5
         ).encode(
-            y=alt.value(row_height / 2),
+            y=alt.value(300 / 2),
             text='class_label:N'
-        ).properties(width=100, height=row_height)
+        ).properties(width=100, height=300)
 
         hist_charts = []
         for feature in features:
@@ -353,14 +349,14 @@ def main():
             hist = alt.Chart(df_cls).mark_bar().encode(
                 x=alt.X(feature, type='quantitative', bin=alt.Bin(step=bin_width)),
                 y=alt.Y('count()', axis=None)
-            ).properties(width=300, height=row_height)
+            ).properties(width=300, height=300)
 
             hist_charts.append(hist)
 
         row = alt.hconcat(label, *hist_charts, spacing=5)
         row_charts.append(row)
 
-    final_chart = alt.vconcat(*row_charts, spacing=spacing).resolve_scale(x='independent', y='independent')
+    final_chart = alt.vconcat(*row_charts, spacing=10).resolve_scale(x='independent', y='independent')
     final_chart.save('histograms_by_class.html')
     webbrowser.open('file://' + os.path.realpath('histograms_by_class.html'))
 
@@ -544,10 +540,7 @@ def main():
     #  [FN TP]]
     print(cm1, "\n")
 
-    x_df = pd.DataFrame(cancer.data, columns=cancer.feature_names)
-    y_df = pd.Series(cancer.target, name="target")
-
-    false_negative_mask = (y_df == 0) & (y_pred == 1)
+    false_negative_mask = (y == 0) & (y_pred == 1)
     false_negative_indices = np.argwhere(false_negative_mask).flatten()
     print(f"Number of False Negatives: {len(false_negative_indices)}")
     print(f"Indices: {false_negative_indices}\n")
@@ -555,6 +548,8 @@ def main():
     fn_df = x_df.iloc[false_negative_indices, 0:5].copy()  # first 5 features
     fn_df["score"] = scores_all[false_negative_indices]
     print(fn_df, "\n")
+
+    # --------------------------------------------------------
 
     model = LinearSVC(C=svc_c, loss=svc_loss)
     # dual cant be False when loss=hinge, which leads to tiny nondeterminism
@@ -584,7 +579,7 @@ def main():
     # [[TN FP]
     #  [FN TP]]
 
-    false_negative_mask = (y_df == 0) & (y_pred == 1)
+    false_negative_mask = (y == 0) & (y_pred == 1)
     false_negative_indices = np.argwhere(false_negative_mask).flatten()
     print("=== False Negatives ===")
     fn_df = x_df.iloc[false_negative_indices, 0:0].copy()
