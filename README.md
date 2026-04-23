@@ -2,7 +2,8 @@
 
 ## Content
 
-**main.pdf** Explains the methodological choices:
+**main.pdf** Explains the methodological choices, similar to
+**main.md**, though the PDF is more detailed and polished.
 
 **main.py** Implements the workflow:
 - dataset inspection
