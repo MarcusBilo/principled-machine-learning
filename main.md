@@ -26,7 +26,7 @@ The document focuses on methodological reasoning and interpretation, while imple
 
 When applying machine learning, the first and most fundamental question is: what exactly are we trying to achieve?
 
-Here, we analyse the Wisconsin Breast Cancer Dataset with two main objectives:
+Here, we analyse the Wisconsin Breast Cancer Dataset with two objectives:
 - Distinguish as accurately as possible between malignant and benign tumours  
 - Identify interpretably how to reach this distinction  
 
@@ -70,7 +70,7 @@ Models used:
 Reasons:
 - Interpretability (linear boundaries)
 - Deterministic behavior
-- Strong performance in classification tasks  
+- Solid performance in classification tasks  
 
 ---
 
@@ -181,7 +181,7 @@ Feature importance:
 
 ### Important Note
 
-False negatives (missed malignant tumors) are the most critical errors → require further analysis.
+False negatives (missed malignant tumors) are the most critical errors → further analysis.
 
 ---
 
