@@ -10,6 +10,10 @@ This distinction has been highlighted repeatedly in the scientific community, in
 
 Ultimately, the sound application of any methodology (in this case, machine learning) is necessary for good science - but it is not sufficient on its own.
 
+Furthermore, it should be noted that this workflow does not, in and of itself, provide a model that can be used in a real-world setting. Instead, it offers a framework for developing and evaluating machine learning models. Before such a model can be used in practice, further consideration is required. One example of this is a "reject" option, which allows uncertain cases to be referred to a human rather than forcing a prediction.
+
+This is not a limitation of the workflow itself, but rather reflects the difference between evaluating models (in an academic setting) and their use in practice. In medical applications, it is preferable to refer uncertain cases to a physician rather than force a potentially incorrect prediction. In contrast, a rejection option is impractical in applications such as mass production, since manual checks are comparatively expensive.
+
 ## Content
 
 **main.pdf** Explains the methodological choices, similar to
