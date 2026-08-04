@@ -45,6 +45,10 @@ python main.py
 
 ## Dataset
 
-Wisconsin Breast Cancer dataset (via [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html)).
+Wisconsin Breast Cancer dataset (via scikit-learn [here](https://scikit-learn.org/1.7/modules/generated/sklearn.datasets.load_breast_cancer.html)).
 
 Introductory Paper: [Nuclear feature extraction for breast tumor diagnosis](https://www.semanticscholar.org/paper/Nuclear-feature-extraction-for-breast-tumor-Street-Wolberg/53f0fbb425bc14468eb3bf96b2e1d41ba8087f36).
+
+## Credits
+
+@scikit-learn [Standard ML Toolbox](https://scikit-learn.org/1.7/index.html)
