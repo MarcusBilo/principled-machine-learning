@@ -51,9 +51,14 @@ Introductory Paper: [Nuclear feature extraction for breast tumor diagnosis](http
 
 ## Credits
 
-numpy [Computing numerical arrays](https://github.com/numpy/numpy)
-pandas [Manipulating structured data](https://github.com/pandas-dev/pandas)
+@numpy [Computing numerical arrays](https://github.com/numpy/numpy)
+
+@pandas [Manipulating structured data](https://github.com/pandas-dev/pandas)
+
 @scikit-learn [Modeling machine learning](https://github.com/scikit-learn/scikit-learn)
-joblib [Running parallel tasks](https://github.com/joblib/joblib)
-tqdm [Tracking loop progress](https://github.com/tqdm/tqdm)
-altair [Building declarative charts](https://github.com/vega/altair)
+
+@joblib [Running parallel tasks](https://github.com/joblib/joblib)
+
+@tqdm [Tracking loop progress](https://github.com/tqdm/tqdm)
+
+@altair [Building declarative charts](https://github.com/vega/altair)
