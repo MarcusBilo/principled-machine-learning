@@ -1,5 +1,3 @@
-# Guidepost for reliable ML using the Wisconsin Breast Cancer dataset
-
 ## Good Machine Learning ≠ Good Science
 
 First of all, a well-executed machine learning project alone does not guarantee scientific validity. The reliability of a model also depends on factors such as data quality and representativeness, study design, and the identification of potential sources of bias. Even technically correct machine learning can produce misleading conclusions if these aspects are neglected.
